@@ -1,0 +1,13 @@
+SELECT
+    b.title,
+    p.first_name,
+    p.last_name,
+    br.branch_name
+FROM books b
+JOIN loans l
+    ON b.book_id = l.book_id
+JOIN patrons p
+    ON l.patron_id = p.patron_id
+JOIN branches br
+    ON l.branch_id = br.branch_id
+WHERE b.genre_id = 1

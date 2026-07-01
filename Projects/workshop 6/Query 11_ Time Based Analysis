@@ -1,0 +1,8 @@
+SELECT
+    strftime('%Y', checkout_date) AS year,
+    strftime('%m', checkout_date) AS month,
+    COUNT(loan_id) AS number_of_loans,
+    COUNT(DISTINCT patron_id) AS unique_patrons
+FROM loans
+GROUP BY strftime('%Y', checkout_date), strftime('%m', checkout_date)
+ORDER BY year, month

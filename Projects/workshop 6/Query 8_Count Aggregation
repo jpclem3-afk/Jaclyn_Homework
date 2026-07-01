@@ -1,0 +1,7 @@
+SELECT
+    g.genre_name,
+    COUNT(b.book_id) AS number_of_books
+FROM genres g
+JOIN books b
+    ON g.genre_id = b.genre_id
+GROUP BY g.genre_name;

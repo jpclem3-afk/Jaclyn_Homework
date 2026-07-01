@@ -1,0 +1,11 @@
+SELECT
+    l.loan_id,
+    l.checkout_date,
+    l.due_date,
+    p.first_name,
+    p.last_name,
+    p.email
+FROM Loans l
+JOIN Patrons p
+    ON l.patron_id =p.patron_id
+WHERE l.checkout_date BETWEEN '2023-01-01' AND '2023-01-31';

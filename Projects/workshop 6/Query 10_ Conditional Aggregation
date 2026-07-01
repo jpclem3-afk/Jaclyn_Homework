@@ -1,0 +1,10 @@
+SELECT
+    p.first_name,
+    p.last_name,
+    COUNT(l.loan_id) AS overdue_books
+FROM patrons p
+JOIN loans l
+    ON p.patron_id = l.patron_id
+WHERE date(l.due_date) < date('now')
+  AND l.return_date IS NULL
+GROUP BY p.patron_id, p.first_name, p.last_name;

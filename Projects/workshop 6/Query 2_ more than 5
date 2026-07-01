@@ -1,0 +1,4 @@
+SELECT title, copies_owned 
+FROM Books
+WHERE copies_owned > 5
+AND genre_id = 1;

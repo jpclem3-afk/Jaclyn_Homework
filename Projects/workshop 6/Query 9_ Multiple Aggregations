@@ -1,0 +1,10 @@
+SELECT
+    br.branch_name,
+    AVG(julianday(l.return_date) - julianday(l.checkout_date)) AS avg_loan_duration,
+    MIN(julianday(l.return_date) - julianday(l.checkout_date)) AS min_loan_duration,
+    MAX(julianday(l.return_date) - julianday(l.checkout_date)) AS max_loan_duration
+FROM loans l
+JOIN branches br
+    ON l.branch_id = br.branch_id
+WHERE l.return_date IS NOT NULL
+GROUP BY br.branch_name;

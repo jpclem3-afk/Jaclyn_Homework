@@ -1,0 +1,13 @@
+SELECT
+    b.title,
+    a.first_name || ' ' || a.last_name AS author_name,
+    g.genre_name,
+    l.checkout_date,
+    l.due_date
+FROM Loans l
+JOIN Books b
+    ON l.book_id = b.book_id
+JOIN Authors a
+    ON b.author_id = a.author_id
+JOIN Genres g
+    ON b.genre_id = g.genre_id;

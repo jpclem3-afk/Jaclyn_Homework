@@ -1,0 +1,10 @@
+SELECT
+    p1.first_name || ' ' || p1.last_name AS patron1,
+    p2.first_name || ' ' || p2.last_name AS patron2,
+    p1.city
+FROM Patrons p1
+JOIN Patrons p2
+    ON p1.city = p2.city
+WHERE p1.patron_id < p2.patron_id;
+
+
